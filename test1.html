@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>测试返回的数据结果</title>
+    <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>
+<script>
+    $(function(){
+        //要一下所有的文章
+        $.ajax({
+            method:"GET",
+            url:"get.php?action=get_list",
+            data:""
+        }).success(function(data){
+            var dataObj = JSON.parse(data);
+//            $.each(data,function(item){
+//                console.log(item);
+//            })
+//            $('#result').html(data);
+            $.each(dataObj,function(index,item){
+                console.dir(item);
+            })
+//            console.log(dataObj);
+        })
+    })
+</script>
